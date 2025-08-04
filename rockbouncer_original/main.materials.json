@@ -1,0 +1,127 @@
+{
+  "rockbouncer_IFS_diff": {
+    "name": "rockbouncer_IFS_diff",
+    "mapTo": "rockbouncer_IFS_diff",
+    "class": "Material",
+    "Stages": [
+      {
+        "ambientOcclusionMap": "/vehicles/rockbouncer/rockbouncer_IFS_diff_ao.data.png",
+        "baseColorMap": "/vehicles/rockbouncer/rockbouncer_IFS_diff_b.color.png",
+        "metallicFactor": 1,
+        "metallicMap": "/vehicles/rockbouncer/rockbouncer_IFS_diff_m.data.png",
+        "normalMap": "/vehicles/rockbouncer/rockbouncer_IFS_diff_nm.normal.png",
+        "pixelSpecular": true,
+        "roughnessFactor": null,
+        "roughnessMap": "/vehicles/rockbouncer/rockbouncer_IFS_diff_r.data.png"
+      },
+      {
+        "baseColorMap": "/vehicles/rockbouncer/rockbouncer_IFS_diff_b.color.png",
+        "metallicFactor": null,
+        "normalMap": "/vehicles/rockbouncer/rockbouncer_IFS_diff_nm.normal.png",
+        "pixelSpecular": true,
+        "roughnessFactor": 0.607767701
+      },
+      {
+        "metallicFactor": null,
+        "pixelSpecular": null,
+        "roughnessFactor": null
+      },
+      {
+        "metallicFactor": null,
+        "pixelSpecular": null,
+        "roughnessFactor": null
+      }
+    ],
+    "alphaRef": 0,
+    "dynamicCubemap": true,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "translucent": true,
+    "translucentBlendOp": "None",
+    "version": 1.5
+  },
+  "rockbouncer_main": {
+    "name": "rockbouncer_main",
+    "mapTo": "rockbouncer_main",
+    "class": "Material",
+    "Stages": [
+      {
+        "ambientOcclusionMap": "/vehicles/rockbouncer/rockbouncer_main_ao.data.png",
+        "baseColorMap": "/vehicles/rockbouncer/rockbouncer_main_b.color.png",
+        "clearCoatFactor": null,
+        "instanceDiffuse": null,
+        "metallicFactor": 1,
+        "metallicMap": "/vehicles/rockbouncer/rockbouncer_main_m.data.png",
+        "normalMap": "/vehicles/rockbouncer/rockbouncer_main_nm.normal.png",
+        "roughnessMap": "/vehicles/rockbouncer/rockbouncer_main_r.data.png"
+      },
+      {
+        "ambientOcclusionMap": "/vehicles/rockbouncer/rockbouncer_main_ao.data.png",
+        "clearCoatFactor": 1,
+        "clearCoatMap": "/vehicles/rockbouncer/rockbouncer_main_c.data.png",
+        "colorPaletteMap": "vehicles/common/nullcolormaskR.dds",
+        "instanceDiffuse": true,
+        "metallicFactor": 1,
+        "normalMap": "/vehicles/rockbouncer/rockbouncer_main_nm.normal.png",
+        "opacityMap": "/vehicles/rockbouncer/rockbouncer_main_c.data.png"
+      },
+      {
+        "clearCoatFactor": null,
+        "instanceDiffuse": null,
+        "metallicFactor": null
+      },
+      {
+        "clearCoatFactor": null,
+        "instanceDiffuse": null,
+        "metallicFactor": null
+      }
+    ],
+    "activeLayers": 2,
+    "dynamicCubemap": true,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "version": 1.5
+  },
+  "rockbouncer_main_color": {
+    "name": "rockbouncer_main_color",
+    "mapTo": "rockbouncer_main_color",
+    "class": "Material",
+    "Stages": [
+      {
+        "ambientOcclusionMap": "/vehicles/rockbouncer/rockbouncer_main_ao.data.png",
+        "baseColorMap": "/vehicles/rockbouncer/rockbouncer_main_b.color.png",
+        "clearCoatFactor": null,
+        "instanceDiffuse": null,
+        "metallicFactor": 1,
+        "metallicMap": "/vehicles/rockbouncer/rockbouncer_main_m.data.png",
+        "normalMap": "/vehicles/rockbouncer/rockbouncer_main_nm.normal.png",
+        "roughnessMap": "/vehicles/rockbouncer/rockbouncer_main_r.data.png"
+      },
+      {
+        "ambientOcclusionMap": "/vehicles/rockbouncer/rockbouncer_main_ao.data.png",
+        "clearCoatFactor": 1,
+        "clearCoatMap": "/vehicles/rockbouncer/rockbouncer_main_color_c.data.png",
+        "colorPaletteMap": "/vehicles/rockbouncer/rockbouncer_main_p.color.png",
+        "instanceDiffuse": true,
+        "metallicFactor": 1,
+        "normalMap": "/vehicles/rockbouncer/rockbouncer_main_nm.normal.png",
+        "opacityMap": "/vehicles/rockbouncer/rockbouncer_main_color_c.data.png"
+      },
+      {
+        "clearCoatFactor": null,
+        "instanceDiffuse": null,
+        "metallicFactor": null
+      },
+      {
+        "clearCoatFactor": null,
+        "instanceDiffuse": null,
+        "metallicFactor": null
+      }
+    ],
+    "activeLayers": 2,
+    "dynamicCubemap": true,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "version": 1.5
+  }
+}

@@ -1,0 +1,204 @@
+{
+"rockbouncer_modern_lightbar": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Modern Light Bar",
+        "value":1400
+    },
+    "slotType" : "rockbouncer_lightbar_police",
+    "slots": [
+        ["type", "default", "description"],
+        ["lightbar_pattern","lightbar_pattern_police_standard", "Light Bar Flash Parfern", {"coreSlot":true}],
+        ["lightbar_color_L","lightbar_color_L_white", "Left Light Bar Glass Color", {"coreSlot":true}],
+        ["lightbar_color_R","lightbar_color_R_white", "Right Light Bar Glass Color", {"coreSlot":true}],
+        //["lightbar_floodlights","lightbar_floodlights", "Flood Lights", {"nodeMove":{"x":0,"y":0.06,"z":1.71}}],
+        //["lightbar_sign","", "LED Sign", {"nodeMove":{"x":0,"y":0.07,"z":1.725}}],
+        ["lightbar_antenna","", "Antenna", {"nodeMove":{"x":0,"y":0.05,"z":1.71}}],
+        ["soundscape_siren","soundscape_siren_4", "Siren Audio"]
+    ],
+    "soundscape": [
+        ["name", "src"],
+        //affects siren location because siren soundscape part is loaded after
+        {"node:":"f11"},
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["light_bar_LED_US_body", ["lightbar"], [], {"pos":{"x": 0.0, "y":0.06, "z":1.71}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1.3, "y":1.3, "z":1.3}}],
+        ["light_bar_mount_hi", ["rockbouncer_roof"], [], {"pos":{"x": 0.0, "y":0.06, "z":1.70}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1.2, "y":1.3, "z":1.6}}],
+        {"deformGroup":"lightbar_break", "deformMaterialBase":"policeparts_lights_white", "deformMaterialDamaged":"policeparts_lights_white"},
+        ["light_bar_LED_US_lights_new", ["lightbar"], [], {"pos":{"x": 0.0, "y":0.06, "z":1.71}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1.3, "y":1.3, "z":1.3}}],
+        {"deformGroup":"lightbar_break", "deformMaterialBase":"policeparts_glass", "deformMaterialDamaged":"$= $components.lightbarMaterials.glass_L_dmg == nil and 'policeparts_glass_white_dmg' or $components.lightbarMaterials.glass_L_dmg"},
+        ["light_bar_LED_US_glass_L", ["lightbar"], [], {"pos":{"x": 0.0, "y":0.06, "z":1.71}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1.3, "y":1.3, "z":1.3}}],
+        {"deformGroup":"lightbar_break", "deformMaterialBase":"policeparts_glass", "deformMaterialDamaged":"$= $components.lightbarMaterials.glass_R_dmg == nil and 'policeparts_glass_white_dmg' or $components.lightbarMaterials.glass_R_dmg"},
+        ["light_bar_LED_US_glass_R", ["lightbar"], [], {"pos":{"x": 0.0, "y":0.06, "z":1.71}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1.3, "y":1.3, "z":1.3}}],
+        {"deformGroup":""},
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"group":"lightbar"},
+         {"selfCollision":true},
+         {"collision":true},
+         {"nodeWeight":1.00},
+         {"frictionCoef":0.7},
+         {"nodeMaterial":"|NM_METAL"},
+         ["lightbar_1", 0.0,-0.03, 1.84],
+         ["lightbar_2", 0.0,-0.03, 1.77],
+         ["lightbar_3", 0.0, 0.19, 1.84],
+         ["lightbar_4", 0.0, 0.19, 1.77],
+
+         ["lightbar_1l", 0.62,-0.03, 1.84],
+         ["lightbar_2l", 0.62,-0.03, 1.77],
+         ["lightbar_3l", 0.62, 0.19, 1.84],
+         ["lightbar_4l", 0.62, 0.19, 1.77],
+
+         ["lightbar_1r", -0.62,-0.03, 1.84],
+         ["lightbar_2r", -0.62,-0.03, 1.77],
+         ["lightbar_3r", -0.62, 0.19, 1.84],
+         ["lightbar_4r", -0.62, 0.19, 1.77],
+         {"group":""}
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":701000,"beamDamp":60},
+          {"beamDeform":6000,"beamStrength":"FLT_MAX"},
+          //Main shape
+          {"deformationTriggerRatio":0.02},
+          {"deformGroup":"lightbar_break"},
+          ["lightbar_1","lightbar_2"],
+          ["lightbar_2","lightbar_3"],
+          ["lightbar_3","lightbar_4"],
+          ["lightbar_4","lightbar_1"],
+          ["lightbar_1","lightbar_3"],
+          ["lightbar_2","lightbar_4"],
+
+          ["lightbar_1l","lightbar_2l"],
+          ["lightbar_2l","lightbar_3l"],
+          ["lightbar_3l","lightbar_4l"],
+          ["lightbar_4l","lightbar_1l"],
+          ["lightbar_1l","lightbar_3l"],
+          ["lightbar_2l","lightbar_4l"],
+
+          ["lightbar_1r","lightbar_2r"],
+          ["lightbar_2r","lightbar_3r"],
+          ["lightbar_3r","lightbar_4r"],
+          ["lightbar_4r","lightbar_1r"],
+          ["lightbar_1r","lightbar_3r"],
+          ["lightbar_2r","lightbar_4r"],
+
+          ["lightbar_1r","lightbar_1"],
+          ["lightbar_2r","lightbar_2"],
+          ["lightbar_3r","lightbar_3"],
+          ["lightbar_4r","lightbar_4"],
+
+          ["lightbar_1l","lightbar_1"],
+          ["lightbar_2l","lightbar_2"],
+          ["lightbar_3l","lightbar_3"],
+          ["lightbar_4l","lightbar_4"],
+
+          //Center to left cross-beams
+          ["lightbar_4l","lightbar_3"],
+          ["lightbar_3l","lightbar_4"],
+          ["lightbar_3","lightbar_1l"],
+          ["lightbar_3l","lightbar_1"],
+          ["lightbar_1","lightbar_2l"],
+          ["lightbar_2","lightbar_1l"],
+          ["lightbar_2l","lightbar_4"],
+          ["lightbar_4l","lightbar_2"],
+
+          ["lightbar_4l","lightbar_1"],
+          ["lightbar_2l","lightbar_3"],
+          ["lightbar_4","lightbar_1l"],
+          ["lightbar_2","lightbar_3l"],
+
+          //Center to right cross-beams
+          ["lightbar_4r","lightbar_3"],
+          ["lightbar_3r","lightbar_4"],
+          ["lightbar_3","lightbar_1r"],
+          ["lightbar_3r","lightbar_1"],
+          ["lightbar_1","lightbar_2r"],
+          ["lightbar_2","lightbar_1r"],
+          ["lightbar_2r","lightbar_4"],
+          ["lightbar_4r","lightbar_2"],
+
+          ["lightbar_4r","lightbar_1"],
+          ["lightbar_2r","lightbar_3"],
+          ["lightbar_4","lightbar_1r"],
+          ["lightbar_2","lightbar_3r"],
+
+          //rigids
+          {"beamSpring":301000,"beamDamp":60},
+          ["lightbar_1r","lightbar_1l"],
+          ["lightbar_2r","lightbar_2l"],
+          ["lightbar_3r","lightbar_3l"],
+          ["lightbar_4r","lightbar_4l"],
+
+          {"beamSpring":401000,"beamDamp":60},
+          {"beamDeform":5000,"beamStrength":12000},
+          {"deformationTriggerRatio":0.05},
+          {"breakGroup":"lightbar_break"},
+          //To body
+          ["lightbar_2l","rf2l"],
+          ["lightbar_2l","rf3l"],
+          ["lightbar_4l","rf2l"],
+          ["lightbar_4l","rf3l"],
+          ["lightbar_4l","rf3"],
+
+          ["lightbar_1l","rf2l"],
+          ["lightbar_1l","rf3l"],
+          ["lightbar_1l","rf2"],
+          ["lightbar_3l","rf2l"],
+          ["lightbar_3l","rf3l"],
+          ["lightbar_3l","rf2"],
+
+          ["lightbar_2r","rf2r"],
+          ["lightbar_2r","rf3r"],
+          ["lightbar_4r","rf2r"],
+          ["lightbar_4r","rf3r"],
+          ["lightbar_4r","rf3"],
+
+          ["lightbar_1r","rf2r"],
+          ["lightbar_1r","rf3r"],
+          ["lightbar_1r","rf2"],
+          ["lightbar_3r","rf2r"],
+          ["lightbar_3r","rf3r"],
+          ["lightbar_3r","rf2"],
+
+          ["lightbar_1l","f16"],
+          ["lightbar_2l","f16"],
+          ["lightbar_3l","f16"],
+          ["lightbar_4l","f16"],
+          ["lightbar_1","f16"],
+          ["lightbar_2","f16"],
+          ["lightbar_3","f16"],
+          ["lightbar_4","f16"],
+          ["lightbar_1r","f16"],
+          ["lightbar_2r","f16"],
+          ["lightbar_3r","f16"],
+          ["lightbar_4r","f16"],
+
+          {"breakGroup":""},
+          {"deformGroup":""},
+
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0}
+    ],
+    "quads": [
+          ["id1:","id2:","id3:","id4:"],
+          {"group":"lightbar"},
+          {"dragCoef":10},
+          ["lightbar_3l","lightbar_4l","lightbar_4","lightbar_3"],
+          ["lightbar_1l","lightbar_3l","lightbar_3","lightbar_1"],
+          ["lightbar_1l","lightbar_2l","lightbar_4l","lightbar_3l"],
+          ["lightbar_1","lightbar_2","lightbar_2l","lightbar_1l"],
+          ["lightbar_4l","lightbar_2l","lightbar_2","lightbar_4"],
+
+          ["lightbar_3","lightbar_4","lightbar_4r","lightbar_3r"],
+          ["lightbar_1","lightbar_3","lightbar_3r","lightbar_1r"],
+          ["lightbar_3r","lightbar_4r","lightbar_2r","lightbar_1r"],
+          ["lightbar_1r","lightbar_2r","lightbar_2","lightbar_1"],
+          ["lightbar_4","lightbar_2","lightbar_2r","lightbar_4r"],
+          {"group":""}
+    ]
+},
+
+}

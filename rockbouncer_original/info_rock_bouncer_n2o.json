@@ -1,0 +1,54 @@
+{
+  "0-100 km/h":5.2,
+  "0-100 mph":13.2,
+  "0-200 km/h":24.3,
+  "0-60 mph":5,
+  "100-0 km/h":38.9,
+  "100-200 km/h":19,
+  "60-0 mph":118.4,
+  "60-100 mph":8.1,
+  "BoundingBox":[
+    [
+      -0.855,
+      -1.5675,
+      -0.44314
+    ],
+    [
+      1.375,
+      2.5467,
+      1.432
+    ]
+  ],
+  "Braking G":1.011,
+  "Config Type":"Custom",
+  "Configuration":"Rock Bouncer (A)",
+  "Description":"A low center of gravity with plenty of horsepower and massive tires make the Rock Bouncer the fastest way up the mountain of your choice. Arm the nitrous, lock the differential and hold on",
+  "Drag Times":{
+    "brakingG":0.9741143554,
+    "time_0_60":3.867500299,
+    "time_1000":9.990000769,
+    "time_1_4":11.87450091,
+    "time_1_8":7.749000596,
+    "time_330":5.198500402,
+    "time_60":1.945500151,
+    "velAt_1_4":54.01463793,
+    "velAt_1_8":43.56718043
+  },
+  "Drivetrain":"4WD",
+  "Fuel Type":"Gasoline",
+  "Induction Type":"NA",
+  "Off-Road Score":64,
+  "Power":724,
+  "PowerPeakRPM":6300,
+  "Propulsion":"ICE",
+  "Top Speed":65.2260847,
+  "Torque":1190,
+  "TorquePeakRPM":3050,
+  "Transmission":"Automatic",
+  "Value":90000,
+  "Weight":1890,
+  "Weight/Power":2.610497238,
+  "defaultPaintName1":"Grassroots",
+  "defaultPaintName2":"Gunmetal",
+  "defaultPaintName3":"Gunmetal"
+}

@@ -1,0 +1,52 @@
+{
+  "0-100 km/h":5.7,
+  "0-100 mph":12.5,
+  "0-60 mph":5.4,
+  "100-0 km/h":39,
+  "60-0 mph":118.3,
+  "60-100 mph":7,
+  "BoundingBox":[
+    [
+      -0.885,
+      -1.36,
+      -0.462
+    ],
+    [
+      1.405,
+      2.89402,
+      1.432
+    ]
+  ],
+  "Braking G":1.009,
+  "Config Type":"Custom",
+  "Configuration":"Rock Racer (A)",
+  "Description":"Truly a jack of all trades, the Rock Racer is built for versatility and speed in the most grueling terrain the desert has to offer",
+  "Drag Times":{
+    "brakingG":1.061238067,
+    "time_0_60":4.958500336,
+    "time_1000":11.29650081,
+    "time_1_4":13.46350097,
+    "time_1_8":8.747000611,
+    "time_330":5.815500401,
+    "time_60":2.190500155,
+    "velAt_1_4":46.74113004,
+    "velAt_1_8":37.99906277
+  },
+  "Drivetrain":"4WD",
+  "Fuel Type":"Gasoline",
+  "Induction Type":"NA",
+  "Off-Road Score":78,
+  "Power":440,
+  "PowerPeakRPM":6150,
+  "Propulsion":"ICE",
+  "Top Speed":50.43926807,
+  "Torque":600,
+  "TorquePeakRPM":"3550 - 4450",
+  "Transmission":"Automatic",
+  "Value":100000,
+  "Weight":1880,
+  "Weight/Power":4.272727273,
+  "defaultPaintName1":"Signal Orange",
+  "defaultPaintName2":"Gray",
+  "defaultPaintName3":"Jet Black"
+}

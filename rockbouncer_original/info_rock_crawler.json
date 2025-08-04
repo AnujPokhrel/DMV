@@ -1,0 +1,50 @@
+{
+  "0-100 km/h":8.1,
+  "0-60 mph":7.6,
+  "100-0 km/h":38.9,
+  "60-0 mph":117.1,
+  "BoundingBox":[
+    [
+      -0.855,
+      -1.5675,
+      -0.44314
+    ],
+    [
+      1.375,
+      2.89402,
+      1.5
+    ]
+  ],
+  "Braking G":1.011,
+  "Config Type":"Custom",
+  "Configuration":"Rock Crawler (A)",
+  "Description":"Solid axles, low gearing and lots of torque make this a really good rock crawler",
+  "Drag Times":{
+    "brakingG":0.9276717924,
+    "time_0_60":6.506500484,
+    "time_1000":12.50400094,
+    "time_1_4":15.14900114,
+    "time_1_8":9.417500703,
+    "time_330":5.92150044,
+    "time_60":1.950500136,
+    "velAt_1_4":38.22486377,
+    "velAt_1_8":31.52815046
+  },
+  "Drivetrain":"4WD",
+  "Fuel Type":"Gasoline",
+  "Induction Type":"NA",
+  "Off-Road Score":62,
+  "Power":259,
+  "PowerPeakRPM":"4100 - 5500",
+  "Propulsion":"ICE",
+  "Top Speed":39.0303325,
+  "Torque":470,
+  "TorquePeakRPM":"3000 - 3750",
+  "Transmission":"Automatic",
+  "Value":80000,
+  "Weight":1895,
+  "Weight/Power":7.316602317,
+  "defaultPaintName1":"Lemonade",
+  "defaultPaintName2":"Lemonade",
+  "defaultPaintName3":"Firefighter"
+}

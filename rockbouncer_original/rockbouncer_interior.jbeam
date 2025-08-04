@@ -1,0 +1,347 @@
+{
+"rockbouncer_floorjack": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Floor Jack",
+        "value":120,
+    },
+    "slotType" : "rockbouncer_floorjack",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["rockbouncer_jack", ["rockbouncer_frame"]],
+    ],
+    "nodes":[
+         ["id", "posX", "posY", "posZ"],
+         {"group":""},
+         {"collision":false},
+         {"selfCollision":false},
+         {"nodeWeight":10},
+         ["jack1", 0.02, 1.35, 1.167],
+         {"group":""},
+    ],
+    "beams":[
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        //main shape
+        {"beamSpring":251000,"beamDamp":100},
+        {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+        {"deformLimitExpansion":""},
+        ["jack1", "f18"],
+        ["jack1", "f18l"],
+        ["jack1", "f18r"],
+        ["jack1", "rf5l"],
+        ["jack1", "rf5r"],
+        ["jack1", "rf6"],
+        {"deformLimitExpansion":1.2},
+   ],
+},
+"rockbouncer_oilbottles": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Oil Bottles",
+        "value":75,
+    },
+    "slotType" : "rockbouncer_oilbottles",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["rockbouncer_oilbottles", ["rockbouncer_frame"]],
+    ],
+    "nodes":[
+         ["id", "posX", "posY", "posZ"],
+         {"group":""},
+         {"collision":false},
+         {"selfCollision":false},
+         {"nodeWeight":5},
+         ["spoil1", 0.179, 1.115, 1.26],
+         {"group":""},
+    ],
+    "beams":[
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        //main shape
+        {"beamSpring":251000,"beamDamp":100},
+        {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+        {"deformLimitExpansion":""},
+        ["spoil1", "f18"],
+        ["spoil1", "f17"],
+        ["spoil1", "rx3l"],
+        ["spoil1", "f18l"],
+        ["spoil1", "rf5l"],
+        ["spoil1", "rf4l"],
+        {"deformLimitExpansion":1.2},
+   ],
+},
+"rockbouncer_pedals": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Automatic Pedals",
+        "value":120,
+    },
+    "slotType" : "rockbouncer_pedals",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         {"deformGroup":"display_break", "deformMaterialBase":"rockbouncer_gauges_screen", "deformMaterialDamaged":"rockbouncer_gauges_break"},
+         ["rock_bouncer_floorboards", ["rockbouncer_frame"], [],],
+         {"deformGroup":""},
+    ],
+     "props": [
+        ["func",       "mesh",               "idRef:", "idX:", "idY:",  "baseRotation",            "rotation",               "translation",          "min", "max", "offset", "multiplier"],
+        //pedals
+        ["throttle",     "rock_bouncer_pedal_throttle",  "f3l","f3r","f4l",             {"x":90, "y":0, "z":180} , {"x":15 "y":0, "z":0},     {"x":0, "y":0.0, "z":0}, 0, 1, 0, 1, ],
+        ["brake",        "rock_bouncer_pedal_brake",     "f3l","f3r","f4l",             {"x":90, "y":0, "z":180} , {"x":10 "y":0, "z":0},     {"x":0, "y":0.0, "z":0}, 0, 1, 0, 1, ],
+    ],
+},
+"rockbouncer_shifter_A": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Automatic Shifter",
+        "value":120,
+    },
+    "slotType" : "rockbouncer_shifter",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["rockbouncer_shifter_base", ["rockbouncer_dash"], [],],
+         {"deformGroup":""},
+    ],
+    "controller": [
+        ["fileName"],
+        ["propAnimation/singleAxisLever", {"name":"singleAxisLever"}],
+
+    ]
+    "singleAxisLever": {
+        "gearCoordinates": [
+            ["gearIndex",   "value"]
+            [1,            0.0]
+            [2,             0.2]
+            [3,             0.4]
+            [4,             0.6]
+            [5,             0.8]
+            [6,             1]
+        ]
+        "shiftSoundNode:":["dsh"]
+        "shiftSoundEventSingleAxisLever": "event:>Vehicle>Interior>Gearshift>automatic_04",
+        "shiftSoundVolumeSingleAxisLever": 0.5,
+    },
+    "props": [
+        ["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"],
+        //automatic transmission
+        ["gearModeIndex",       "rockbouncer_shifter",    "dsh","f4l","dshr", {"x":0, "y":0, "z":0}, {"x":-85, "y":0, "z":0},   {"x":0, "y":0, "z":0.0}, 0, 1, 0, 1, {"baseRotationGlobal":{"x":0, "y":0, "z":0}}],
+        ],
+},
+"rockbouncer_digidash": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Digital Dashboard",
+        "value":120,
+    },
+    "slotType" : "rockbouncer_dash",
+    "slots":[
+        ["type", "default", "description"],
+        ["digidash_screen_logic","digidash_screen_logic_bng", "Screen", {"coreSlot":true}],
+        ["rockbouncer_dash_passenger","rockbouncer_dash_passenger", "Passenger Display Screen"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         {"deformGroup":"display_break", "deformMaterialBase":"rockbouncer_gauges_screen", "deformMaterialDamaged":"rockbouncer_gauges_break"},
+         ["digidash", ["rockbouncer_dash"], [],         {"pos":{"x": 0.326823, "y":-0.885, "z":1.22971}, "rot":{"x":11, "y":0, "z":0}, "scale":{"x":1.0, "y":1.0, "z":1.0}}],
+         ["digidash_screen", ["rockbouncer_dash"], [],  {"pos":{"x": 0.326823, "y":-0.885, "z":1.22971}, "rot":{"x":11, "y":0, "z":0}, "scale":{"x":1.0, "y":1.0, "z":1.0}}],
+         {"deformGroup":""},
+    ],
+    "controller": [
+        ["fileName"],
+        ["shiftLights"],
+    ],
+    "shiftLights": {
+        "engineName":"mainEngine",
+        "maxEngineRPMOffset": 500,
+        "rpmRange": 3000,
+        "keepLEDsActive": true,
+        "hasStallWarning": true,
+        "outputElectrics": ["led0", "led1", "led2", "led3", "led4", "led5"],
+        "flashingOutputElectrics": ["led0", "led1", "led2", "led3", "led4", "led5"],
+        "flashingAlternateOutputElectrics": [],
+    },
+    "glowMap":{
+        "shiftlight_multi_l0":     {"simpleFunction":{"led0":1}, "off":"shiftlight_off", "on":"shiftlight_on"},
+        "shiftlight_multi_l1":     {"simpleFunction":{"led1":1}, "off":"shiftlight_off", "on":"shiftlight_on"},
+        "shiftlight_multi_l2":     {"simpleFunction":{"led2":1}, "off":"shiftlight_off", "on":"shiftlight_on"},
+        "shiftlight_multi_l3":     {"simpleFunction":{"led3":1}, "off":"shiftlight_off", "on":"shiftlight_on"},
+        "shiftlight_multi_l4":     {"simpleFunction":{"led4":1}, "off":"shiftlight_off", "on":"shiftlight_on"},
+        "shiftlight_multi_l5":     {"simpleFunction":{"led5":1}, "off":"shiftlight_off", "on":"shiftlight_on"},
+    },
+},
+"rockbouncer_gps": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Navigation Unit",
+        "value":120,
+    },
+    "slotType" : "rockbouncer_dash_passenger",
+    "controller": [
+        ["fileName"],
+        ["beamNavigator"],
+    ],
+    "glowMap":{
+        "screen_gps":{"simpleFunction":{"ignitionLevel":0.5}, "off":"screen_off","on":"beamnav_naviscreen_accessory", "on_intense":"screen_gps"},
+    },
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["gpsholder", ["rockbouncer_dash"], [],{"pos":{"x": -0.40, "y":-0.87, "z":1.22971}, "rot":{"x":10, "y":0, "z":0}, "scale":{"x":1.5, "y":1.5, "z":1.5}}],
+         ["gps",       ["rockbouncer_dash"], [],{"pos":{"x": -0.40, "y":-0.87, "z":1.22971}, "rot":{"x":10, "y":0, "z":0}, "scale":{"x":1.5, "y":1.5, "z":1.5}}],
+    ],
+},
+"rockbouncer_dash_passenger": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Driver Dash Duplicate",
+        "value":120,
+    },
+    "slotType" : "rockbouncer_dash_passenger",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         {"deformGroup":"display_break", "deformMaterialBase":"rockbouncer_gauges_screen", "deformMaterialDamaged":"rockbouncer_gauges_break"},
+         ["digidash", ["rockbouncer_dash"], [],         {"pos":{"x": -0.326823, "y":-0.885, "z":1.22971}, "rot":{"x":11, "y":0, "z":0}, "scale":{"x":1.0, "y":1.0, "z":1.0}}],
+         ["digidash_screen", ["rockbouncer_dash"], [],  {"pos":{"x": -0.326823, "y":-0.885, "z":1.22971}, "rot":{"x":11, "y":0, "z":0}, "scale":{"x":1.0, "y":1.0, "z":1.0}}],
+         {"deformGroup":""},
+    ],
+},
+"rockbouncer_offroad_seat_FL": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Left Offroad Seat Base",
+        "value":10,
+    },
+    "slotType" : "rockbouncer_seat_FL",
+    "slots": [
+        ["type", "default", "description"],
+        ["offroad_seat_FL","offroad_seat_FL", "Front Left offroad Seat", {"nodeMove":{"x":0.35, "y":-0.35, "z":0.64}}],
+    ],
+    "camerasInternal":[
+        ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
+        {"nodeWeight":1.9},
+        {"beamSpring":600,"beamDamp":100},
+        {"selfCollision":true},
+        {"collision":true},
+        //dash cam
+        ["dash", 0.331, -0.210, 1.49, 55, "sf3l","sf3ll","sf1ll","sf1l","sf2ll","sf2l", {"beamDeform":5001000,"beamStrength":"FLT_MAX"}],
+    ],
+    "beams":[
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        //main shape
+        {"beamSpring":2350940,"beamDamp":282},
+        {"beamDeform":9000,"beamStrength":"FLT_MAX"},
+        {"deformLimitExpansion":""},
+        {"optional":true},
+
+        //damper
+        {"beamSpring":0,"beamDamp":752},
+        ["sf3ll", "f16"],
+        ["sf3l",  "f16"],
+
+        //attach
+        {"beamSpring":265080,"beamDamp":35.34},
+        {"beamDeform":6850,"beamStrength":"FLT_MAX"},
+        ["sf2l", "stb2l"],
+        ["sf2l", "rx2l"],
+        ["sf2l", "stb1l"],
+        ["sf2l", "fxl1l"],
+        ["sf2ll", "stb2l"],
+        ["sf2ll", "rx2l"],
+        ["sf2ll", "stb1l"],
+        ["sf2ll", "fxl1l"],
+        ["sf1l", "stb2l"],
+        ["sf1l", "rx2l"],
+        ["sf1l", "stb1l"],
+        ["sf1l", "fxl1l"],
+        ["sf1ll", "stb2l"],
+        ["sf1ll", "rx2l"],
+        ["sf1ll", "stb1l"],
+        ["sf1ll", "fxl1l"],
+
+        //limiter
+        {"beamType":"|SUPPORT", "beamLongBound":5},
+        {"beamSpring":441800,"beamDamp":132.54},
+        {"beamPrecompression":0.9},
+        {"beamDeform":4200,"beamStrength":"FLT_MAX"},
+        ["sf3l", "f16l"],
+        ["sf3ll", "f16l"],
+        ["sf3l", "f15ll"],
+        ["sf2l", "f15ll"],
+        ["sf1l", "f14ll"],
+
+        //to other seat
+        {"beamPrecompression":0.7},
+        ["sf1rr", "sf1ll"],
+        ["sf2rr", "sf2ll"],
+        ["sf3rr", "sf3ll"],
+        {"optional":false},
+        {"beamPrecompression":1},
+
+        {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        {"deformLimitExpansion":""},
+    ],
+},
+"rockbouncer_offroad_seat_FR": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Right Offroad Seat Base",
+        "value":10,
+    },
+    "slotType" : "rockbouncer_seat_FR",
+    "slots": [
+        ["type", "default", "description"],
+        ["offroad_seat_FR","offroad_seat_FR", "Front Right offroad Seat", {"nodeMove":{"x":-0.35, "y":-0.35, "z":0.64}}],
+    ],
+    "beams":[
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        //main shape
+        {"beamSpring":2350940,"beamDamp":282},
+        {"beamDeform":9000,"beamStrength":"FLT_MAX"},
+        {"deformLimitExpansion":""},
+        {"optional":true},
+
+        //damper
+        {"beamSpring":0,"beamDamp":752},
+        ["sf3rr", "f16"],
+        ["sf3r",  "f16"],
+
+        //attach
+        {"beamSpring":265080,"beamDamp":35.34},
+        {"beamDeform":6850,"beamStrength":"FLT_MAX"},
+        ["sf2r",  "stb2r"],
+        ["sf2r",  "rx2r"],
+        ["sf2r",  "stb1r"],
+        ["sf2r",  "fxl1r"],
+        ["sf2rr", "stb2r"],
+        ["sf2rr", "rx2r"],
+        ["sf2rr", "stb1r"],
+        ["sf2rr", "fxl1r"],
+        ["sf1r",  "stb2r"],
+        ["sf1r",  "rx2r"],
+        ["sf1r",  "stb1r"],
+        ["sf1r",  "fxl1r"],
+        ["sf1rr", "stb2r"],
+        ["sf1rr", "rx2r"],
+        ["sf1rr", "stb1r"],
+        ["sf1rr", "fxl1r"],
+
+        //limiter
+        {"beamType":"|SUPPORT", "beamLongBound":5},
+        {"beamSpring":441800,"beamDamp":132.54},
+        {"beamPrecompression":0.9},
+        {"beamDeform":4200,"beamStrength":"FLT_MAX"},
+        ["sf3r", "f16r"],
+        ["sf3rr", "f16r"],
+        ["sf3r", "f15rr"],
+        ["sf2r", "f15rr"],
+        ["sf1r", "f14rr"],
+        {"optional":false},
+        {"beamPrecompression":1},
+
+        {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        {"deformLimitExpansion":""},
+    ],
+},
+}

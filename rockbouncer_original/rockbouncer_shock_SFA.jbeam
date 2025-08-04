@@ -1,0 +1,264 @@
+{
+"rockbouncer_shock_SFA": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Bypass Shocks",
+        "value":2250,
+    },
+    "slotType" : "rockbouncer_shock_SFA",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["rockbouncer_SFA_shock_lower_FR", ["rockbouncer_shockshaft_FR"]],
+         ["rockbouncer_SFA_shock_lower_FL", ["rockbouncer_shockshaft_FL"]],
+         ["rockbouncer_SFA_shock_upper_FR", ["rockbouncer_shockbody_FR"]],
+         ["rockbouncer_SFA_shock_upper_FL", ["rockbouncer_shockbody_FL"]],
+    ],
+     "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$bp_6C_F", "range", "N/m/s", "Bypass Shocks", 4000, 1000, 10000, "Compression Damping","Compression damping rate", {"stepDis":100, "subCategory":"Front"}]
+        ["$bp_7R_F", "range", "N/m/s", "Bypass Shocks", 2500, 1000, 10000, "Rebound Damping", "Rebound damping rate", {"stepDis":100, "subCategory":"Front"}]
+        ["$bp_1SC_F", "range", "%", "Bypass Shocks", 0.7, 0, 1, "Short Compression", "Regulates the flow of oil bypassing the damper piston from 0% to 40% of travel", {"minDis":0,"maxDis":100,"stepDis":1, "subCategory":"Front"}]
+        ["$bp_2MC_F", "range", "%", "Bypass Shocks", 0.5, 0, 1, "Mid Compression", "Regulates the flow of oil bypassing the damper piston from 40% to 60% of travel", {"minDis":0,"maxDis":100,"stepDis":1, "subCategory":"Front"}]
+        ["$bp_3LC_F", "range", "%", "Bypass Shocks", 0.35, 0, 1, "Long Compression", "Regulates the flow of oil bypassing the damper piston from 60% to 80% of travel", {"minDis":0,"maxDis":100,"stepDis":1, "subCategory":"Front"}]
+        ["$bp_4SR_F", "range", "%", "Bypass Shocks", 0.25, 0, 0.5, "Short Rebound", "Regulates the flow of oil bypassing the damper piston from 20% to 60% of travel", {"minDis":0,"maxDis":100,"stepDis":1, "subCategory":"Front"}]
+        ["$bp_5LR_F", "range", "%", "Bypass Shocks", 0.25, 0, 0.5, "Long Rebound", "Regulates the flow of oil bypassing the damper piston from 60% to 80% of travel", {"minDis":0,"maxDis":100,"stepDis":1, "subCategory":"Front"}]
+    ],
+    "controller": [
+        ["fileName"],
+        ["bypassDampers" {"name":"frontBypass"}]
+    ],
+    "frontBypass": {
+        "dampers": [
+            ["name", "beamName"]
+            ["FR", "shock_FR"]
+            ["FL", "shock_FL"]
+        ]
+        "zones": [
+            ["zoneDistance", "beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit",            "beamDampVelocitySplitRebound"]
+            [-0.2,           0,          "$bp_6C_F",     0,                 "$bp_7R_F",            "$=$bp_1SC_F+$bp_2MC_F+$bp_3LC_F",  0]
+            [-0.12,          0,          "$bp_6C_F",     0,                 "$bp_7R_F",            "$=$bp_1SC_F+$bp_2MC_F+$bp_3LC_F",  "$=$bp_4SR_F+$bp_5LR_F"]
+            [-0.08           0,          "$bp_6C_F",     0,                 "$bp_7R_F",            "$=$bp_2MC_F+$bp_3LC_F",            "$=$bp_4SR_F+$bp_5LR_F"]
+            [-0.01,          0,          "$bp_6C_F",     0,                 "$bp_7R_F",            "$bp_3LC_F",                        "$bp_5LR_F"]
+            [0.06,           0,          "$bp_6C_F",     0,                 "$bp_7R_F",            0,                                  0]
+            [0.2,           0,           "$bp_6C_F",     0,                 "$bp_7R_F",            0,                                  0]
+        ],
+        "valveSoundMaxVolume": 0.45
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"nodeWeight":2},
+         {"collision":true},
+         {"selfCollision":false},
+         //shock shaft
+         ["fss1r", -0.62518, -1.56050, 0.60133, {"group":"rockbouncer_shockshaft_FR"}],
+         ["fss1l",  0.62518, -1.56050, 0.60133, {"group":"rockbouncer_shockshaft_FL"}],
+         ["fss2r", -0.52822, -1.56590, 0.57743, {"group":"rockbouncer_shockshaft_FR"}],
+         ["fss2l",  0.52822, -1.56590, 0.57743, {"group":"rockbouncer_shockshaft_FL"}],
+         ["fss3r", -0.50239, -1.45320, 1.07510, {"group":"rockbouncer_shockshaft_FR"}],
+         ["fss3l",  0.50239, -1.45320, 1.07510, {"group":"rockbouncer_shockshaft_FL"}],
+         ["fss4r", -0.40544, -1.45860, 1.05120, {"group":"rockbouncer_shockshaft_FR"}],
+         ["fss4l",  0.40544, -1.45860, 1.05120, {"group":"rockbouncer_shockshaft_FL"}],
+
+         //shock body
+         ["fsb1r", -0.45258, -1.40970, 1.26730, {"group":"rockbouncer_shockbody_FR"}],
+         ["fsb1l",  0.45258, -1.40970, 1.26730, {"group":"rockbouncer_shockbody_FL"}],
+         ["fsb2r", -0.35562, -1.41510, 1.24350, {"group":"rockbouncer_shockbody_FR"}],
+         ["fsb2l",  0.35562, -1.41510, 1.24350, {"group":"rockbouncer_shockbody_FL"}],
+         ["fsb3r", -0.57139, -1.51350, 0.80889, {"group":"rockbouncer_shockbody_FR"}],
+         ["fsb3l",  0.57139, -1.51350, 0.80889, {"group":"rockbouncer_shockbody_FL"}],
+         ["fsb4r", -0.47443, -1.51890, 0.78499, {"group":"rockbouncer_shockbody_FR"}],
+         ["fsb4l",  0.47443, -1.51890, 0.78499, {"group":"rockbouncer_shockbody_FL"}],
+         {"group":""},
+    ],
+    "rails": {
+        "shock_FR":{
+            "links:":["fsb1r","fss1r"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shock_FRR":{
+            "links:":["fsb2r","fss2r"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shock_FL":{
+            "links:":["fsb1l","fss1l"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shock_FLL":{
+            "links:":["fsb2l","fss2l"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shockshaft_FR":{
+            "links:":["fss1r","fss2r"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shockshaft_FL":{
+            "links:":["fss1l","fss2l"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shockbody_FR":{
+            "links:":["fsb1r","fsb2r"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shockbody_FL":{
+            "links:":["fsb1l","fsb2l"], "broken:":[], "looped":false, "capped":true,
+        },
+    },
+    "slidenodes": [
+        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+        ["faxsh1r", "shockshaft_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["faxsh1l", "shockshaft_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["fsh1r", "shockbody_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["fsh1l", "shockbody_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["fss3r", "shock_FR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["fss3l", "shock_FL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["fss4r", "shock_FRR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["fss4l", "shock_FLL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["fsb3r", "shock_FR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["fsb3l", "shock_FL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["fsb4r", "shock_FRR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["fsb4l", "shock_FLL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //shock structure
+          {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1001000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          {"deformLimitExpansion":""},
+          ["faxsh1l", "fss2l",{"beamStrength":150100,"breakGroup":"shockmountFL"}],
+          ["faxsh1l", "fss1l",{"beamStrength":150100,"breakGroup":"shockmountFL"}],
+          ["fss1l","fss2l",{"beamStrength":150100,"breakGroup":"shockmountFL"}],
+          ["fss1l", "fss3l"],
+          ["fss2l", "fss4l"],
+          ["fss3l", "fss4l"],
+          ["fss3l", "fss2l"],
+          ["fss4l", "fss1l"],
+
+          ["faxsh1r", "fss2r",{"beamStrength":150100,"breakGroup":"shockmountFR"}],
+          ["faxsh1r", "fss1r",{"beamStrength":150100,"breakGroup":"shockmountFR"}],
+          ["fss1r","fss2r",{"beamStrength":150100,"breakGroup":"shockmountFR"}],
+          ["fss1r", "fss3r"],
+          ["fss2r", "fss4r"],
+          ["fss3r", "fss4r"],
+          ["fss3r", "fss2r"],
+          ["fss4r", "fss1r"],
+
+          ["fsh1l", "fsb2l"],
+          ["fsh1l", "fsb1l"],
+          ["fsb1l", "fsb3l"],
+          ["fsb2l", "fsb4l"],
+          ["fsb3l", "fsb4l"],
+          ["fsb3l", "fsb2l"],
+          ["fsb4l", "fsb1l"],
+
+          ["fsh1r", "fsb2r"],
+          ["fsh1r", "fsb1r"],
+          ["fsb1r", "fsb3r"],
+          ["fsb2r", "fsb4r"],
+          ["fsb3r", "fsb4r"],
+          ["fsb3r", "fsb2r"],
+          ["fsb4r", "fsb1r"],
+
+          ["fsb1r", "fsb2r"],
+          ["fsb1l", "fsb2l"],
+
+          {"beamSpring":101000,"beamDamp":1000},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          ["fss1l", "faxsp1l",{"beamStrength":150100,"breakGroup":"shockmountFL"}],
+          ["fss2l", "faxsp1l",{"beamStrength":150100,"breakGroup":"shockmountFL"}],
+          ["fss1r", "faxsp1r",{"beamStrength":150100,"breakGroup":"shockmountFR"}],
+          ["fss2r", "faxsp1r",{"beamStrength":150100,"breakGroup":"shockmountFR"}],
+
+          ["fsb1l", "fsp1l"],
+          ["fsb2l", "fsp1l"],
+          ["fsb1r", "fsp1r"],
+          ["fsb2r", "fsp1r"],
+
+          //slidenode damping
+          {"beamType":"|NORMAL"},
+          {"beamDeform":10000,"beamStrength":10000},
+          {"beamSpring":0,"beamDamp":10},
+          ["f12r", "fss4l"],
+          ["f12r", "fss3l"],
+          ["fsb4l", "faxs2r"],
+          ["fsb3l", "faxs2r"],
+          ["fsb3l", "f4l"],
+          ["fsb4l", "f4l"],
+
+
+          ["f12l", "fss4r"],
+          ["f12l", "fss3r"],
+          ["fsb4r", "faxs2l"],
+          ["fsb3r", "faxs2l"],
+          ["fsb3r", "f4r"],
+          ["fsb4r", "f4r"],
+
+
+          //--FRONT SHOCKS--
+        {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
+        {"beamDeform":51000,"beamStrength":151000},
+        {"beamSpring":0},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
+        {"precompressionRange":0},
+        {"beamPrecompressionTime":0},
+        ["faxsh1r","fsh1r",
+            {
+            "name":"shock_FR",
+            //set damping values in bypass controller
+            "beamDamp":1000,
+            "beamDampRebound":1000,
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000,
+            "longBoundRange":1000,
+            "shortBoundRange":1000,
+            "boundZone":0.01,
+            "dampCutoffHz":250,
+            },
+        ],
+        ["faxsh1l","fsh1l",
+            {
+            "name":"shock_FL",
+            //set damping values in bypass controller
+            "beamDamp":1000,
+            "beamDampRebound":1000,
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000,
+            "longBoundRange":1000,
+            "shortBoundRange":1000,
+            "boundZone":0.01,
+            "dampCutoffHz":250,
+            },
+        ],
+        {"precompressionRange":""},
+        {"beamPrecompressionTime":""},
+
+        //travel extents
+          {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":0,"beamDamp":0},
+          {"beamLimitSpring":1001000,"beamLimitDamp":1000},
+          ["faxsh1r","fsh1r", {"longBoundRange":0.23,"shortBoundRange":0.22,"boundZone":0.02,"beamLimitDampRebound":0,"dampCutoffHz":500,"breakGroup":"shockmountFR"}],
+          ["faxsh1l","fsh1l", {"longBoundRange":0.23,"shortBoundRange":0.22,"boundZone":0.02,"beamLimitDampRebound":0,"dampCutoffHz":500,"breakGroup":"shockmountFL"}],
+          {"deformLimitExpansion":1.2},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+
+    ],
+    "triangles":[
+        ["id1:", "id2:", "id3:"],
+        {"triangleType":"NONCOLLIDABLE"},
+        {"dragCoef":5},
+        ["fss3r", "fss4r", "fsh1r"],
+        ["fsh1r", "fsb1r", "fss3r"],
+        ["fss4r", "fsb2r", "fsh1r"],
+        ["fss3r", "fsb3r", "fsb4r"],
+        ["fsb4r", "fss4r", "fss3r"],
+        ["fsb3r", "faxsh1r", "fsb4r"],
+        ["faxsh1r", "fss2r", "fsb4r"],
+        ["fsb3r", "fss1r", "faxsh1r"],
+
+        ["fss3l", "fss4l", "fsh1l"],
+        ["fsh1l", "fsb1l", "fss3l"],
+        ["fss4l", "fsb2l", "fsh1l"],
+        ["fss3l", "fsb3l", "fsb4l"],
+        ["fsb4l", "fss4l", "fss3l"],
+        ["fsb3l", "faxsh1l", "fsb4l"],
+        ["faxsh1l", "fss2l", "fsb4l"],
+        ["fsb3l", "fss1l", "faxsh1l"],
+        {"triangleType":"NORMALTYPE"},
+    ],
+},
+}

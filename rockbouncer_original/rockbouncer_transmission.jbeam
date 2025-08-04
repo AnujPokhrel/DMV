@@ -1,0 +1,257 @@
+{
+"rockbouncer_transmission_3A_race": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3-Speed Race Automatic Transmission",
+        "value":4750,
+    },
+    "slotType" : "rockbouncer_transmission",
+    "slots": [
+        ["type", "default", "description"],
+        ["rockbouncer_converter_alt","rockbouncer_converter_alt_med","Torque Converter", {"coreSlot":true}],
+        ["rockbouncer_transfer_case","rockbouncer_transfer_case_4WD","Transfer Case", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["torqueConverter", "torqueConverter", "mainEngine", 1],
+        ["automaticGearbox", "gearbox", "torqueConverter", 1],
+    ],
+    "gearbox": {
+        "uiName":"Gearbox",
+        "gearRatios":[-2.00, 0, 3.1, 1.85, 1.25],
+        "parkLockTorque":2500,
+        "oneWayViscousCoef":50,
+        "friction": 2.48,
+        "dynamicFriction": 0.00251,
+        "torqueLossCoef": 0.017,
+        "gearboxNode:":"tra1",
+        "gearChangeTime": 0.25,
+        "shiftEfficiency":0.75,
+    },
+    "vehicleController": {
+        "automaticModes":"PRNM",
+        "autoDownShiftInM":false,
+        "calculateOptimalLoadShiftPoints": true,
+        "useSmartAggressionCalculation":false,
+        "transmissionGearChangeDelay":2,
+        "gearboxDecisionSmoothingUp":1,
+        "gearboxDecisionSmoothingDown":0.5,
+        "lowShiftDownRPM":1000,
+        "lowShiftUpRPM":1800,
+        "maxGearChangeTime": 0.25,
+        "minGearChangeTime": 0.25,
+        "throttleCoefWhileShifting": 1,
+    },
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["gavril_v8_rockbouncer_transmission", ["rockbouncer_engine","rockbouncer_transmission"]],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":false},
+         {"collision":true},
+         //--4 Speed Auto-
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"nodeWeight":32.9},
+         {"group":"rockbouncer_transmission"},
+         ["tra1", 0.0, -0.372, 0.55],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--TRANSMISSION CONE--
+          {"beamSpring":18800940,"beamDamp":470},
+          {"beamDeform":175000,"beamStrength":"FLT_MAX"},
+          ["tra1","e1r"],
+          ["tra1","e3r"],
+          ["tra1","e1l"],
+          ["tra1","e3l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"rockbouncer_converter_alt_med": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Medium Stall Torque Converter",
+        "value":150,
+    },
+    "slotType" : "rockbouncer_converter_alt",
+    "torqueConverter": {
+        "uiName":"Torque Converter",
+        "converterDiameter":0.286,
+        "converterStiffness":6,
+        "couplingAVRatio":0.86,
+        "stallTorqueRatio":2.1,
+        "additionalEngineInertia":0.18,
+    },
+},
+"rockbouncer_converter_alt_low": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Low Stall Torque Converter",
+        "value":150,
+    },
+    "slotType" : "rockbouncer_converter_alt",
+    "torqueConverter": {
+        "uiName":"Torque Converter",
+        "converterDiameter":0.294,
+        "converterStiffness":6,
+        "couplingAVRatio":0.85,
+        "stallTorqueRatio":2.2,
+        "additionalEngineInertia":0.21,
+    },
+},
+"rockbouncer_converter_alt_heavy": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Heavy Duty Locking Torque Converter",
+        "value":250,
+    },
+    "slotType" : "rockbouncer_converter_alt",
+    "torqueConverter": {
+        "uiName":"Torque Converter",
+        "converterDiameter":0.3,
+        "converterStiffness":8,
+        "couplingAVRatio":0.85,
+        "stallTorqueRatio":2.2,
+        "lockupClutchTorque":450,
+        "additionalEngineInertia":0.20,
+    },
+    "vehicleController": {
+        "torqueConverterLockupRPM":1000,
+        "torqueConverterLockupMinGear":3,
+    },
+},
+"rockbouncer_converter_alt_hi": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"High Stall Torque Converter",
+        "value":150,
+    },
+    "slotType" : "rockbouncer_converter_alt",
+    "torqueConverter": {
+        "uiName":"Torque Converter",
+        "converterDiameter":0.260,
+        "converterStiffness":6,
+        "couplingAVRatio":0.89,
+        "stallTorqueRatio":1.95,
+        "additionalEngineInertia":0.15,
+    },
+},
+"rockbouncer_transfer_case_4WD": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"4WD Transfer Case",
+        "value":1650,
+    },
+    "slotType" : "rockbouncer_transfer_case",
+    "controller": [
+        ["fileName"],
+        ["4wd", {"shaftName":"transfercase_F", "rangeBoxName":"rangebox"}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["rangeBox", "rangebox", "gearbox", 1, {"gearRatios":[1,2.2], "uiName":"Rangebox"}],
+        //locked center diff
+        ["differential", "transfercase", "rangebox", 1, {"diffType":"locked", "lockTorque":8000, "friction":0.44, "dynamicFriction":0.00048, "torqueLossCoef":0.012, "uiName":"Transfer Case", "defaultVirtualInertia":0.1}],
+        //disconnecting front shaft
+        ["shaft", "transfercase_F", "transfercase", 2, {"canDisconnect":true, "friction":0.44, "dynamicFriction":0.00048, "uiName":"Front Output Shaft"}],
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["rockbouncer_transfer_case", ["rockbouncer_transmission","rockbouncer_engine"]],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":false},
+         {"collision":true},
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"nodeWeight":18},
+         {"group":"rockbouncer_transmission"},
+         ["tra2", 0.10, -0.022, 0.591],
+         ["tra3", -0.20, -0.022, 0.591],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":12600840,"beamDamp":390},
+          {"beamDeform":99750,"beamStrength":"FLT_MAX"},
+          ["tra2","tra1"],
+
+          ["tra2","e1r"],
+          ["tra2","e1l"],
+          ["tra2","e3r"],
+          ["tra2","e3l"],
+
+          ["tra3","e1r"],
+          ["tra3","e1l"],
+          ["tra3","e3r"],
+          ["tra3","e3l"],
+
+          ["tra3","tra2"],
+          ["tra3","tra1"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"rockbouncer_transfer_case_4WD_crawler": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Crawler 4WD Transfer Case",
+        "value":1650,
+    },
+    "slotType" : "rockbouncer_transfer_case",
+    "controller": [
+        ["fileName"],
+        ["4wd", {"shaftName":"transfercase_F", "rangeBoxName":"rangebox"}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["rangeBox", "rangebox", "gearbox", 1, {"gearRatios":[1,4], "uiName":"Rangebox"}],
+        //locked center diff
+        ["differential", "transfercase", "rangebox", 1, {"diffType":"locked", "lockTorque":8000, "friction":0.55, "dynamicFriction":0.00059, "torqueLossCoef":0.012, "uiName":"Transfer Case", "defaultVirtualInertia":0.1}],
+        //disconnecting front shaft
+        ["shaft", "transfercase_F", "transfercase", 2, {"canDisconnect":true, "friction":0.55, "dynamicFriction":0.00059, "uiName":"Front Output Shaft"}],
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["rockbouncer_transfer_case", ["rockbouncer_transmission","rockbouncer_engine"]],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":false},
+         {"collision":true},
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"nodeWeight":18},
+         {"group":"rockbouncer_transmission"},
+         ["tra2", 0.10, -0.022, 0.591],
+         ["tra3", -0.20, -0.022, 0.591],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":12600840,"beamDamp":390},
+          {"beamDeform":99750,"beamStrength":"FLT_MAX"},
+          ["tra2","tra1"],
+
+          ["tra2","e1r"],
+          ["tra2","e1l"],
+          ["tra2","e3r"],
+          ["tra2","e3l"],
+
+          ["tra3","e1r"],
+          ["tra3","e1l"],
+          ["tra3","e3r"],
+          ["tra3","e3l"],
+
+          ["tra3","tra2"],
+          ["tra3","tra1"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+}

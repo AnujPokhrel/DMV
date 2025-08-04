@@ -1,0 +1,7 @@
+{
+    "fileversion": 2,
+    "actions": {
+        "sw_lowbeam": {"order":1.1, "onDown":"electrics.setLightsState(1-electrics.values.lowhighbeam)", "title":"ui.inputActions.vehicle.toggle_headlights.title", "desc":"ui.inputActions.vehicle.toggle_headlights.description"},
+        "sw_fog":     {"order":1.2, "onDown":"electrics.toggle_fog_lights()",                            "title":"ui.inputActions.vehicle.toggle_foglights.title",  "desc":"ui.inputActions.vehicle.toggle_foglights.description"},
+    }
+}

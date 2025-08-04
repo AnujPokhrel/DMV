@@ -1,0 +1,269 @@
+{
+"rockbouncer_shock_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Bypass Shocks",
+        "value":200,
+    },
+    "slotType" : "rockbouncer_shock_R",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["rockbouncer_shock_lower_RL", ["shockshaft_RL"]],
+        ["rockbouncer_shock_lower_RR", ["shockshaft_RR"]],
+        ["rockbouncer_shock_upper_RL", ["shockbody_RL"]],
+        ["rockbouncer_shock_upper_RR", ["shockbody_RR"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"nodeMaterial":"|NM_METAL"},
+        {"nodeWeight":2},
+        {"collision":true},
+        {"selfCollision":false},
+        //shock shaft
+        ["rss1r", -0.70145, 0.92741, 0.462636, {"group":"shockshaft_RR"}],
+        ["rss1l",  0.70145, 0.92741, 0.462636, {"group":"shockshaft_RL"}],
+        ["rss2r", -0.60145, 0.92741, 0.453984, {"group":"shockshaft_RR"}],
+        ["rss2l",  0.60145, 0.92741, 0.453984, {"group":"shockshaft_RL"}],
+        ["rss3r", -0.634478, 0.766231, 1.23026, {"group":"shockshaft_RR"}],
+        ["rss3l",  0.634478, 0.766231, 1.23026, {"group":"shockshaft_RL"}],
+        ["rss4r", -0.534478, 0.766231, 1.2216, {"group":"shockshaft_RR"}],
+        ["rss4l",  0.534478, 0.766231, 1.2216, {"group":"shockshaft_RL"}],
+
+        //shock body
+        ["rsb1r", -0.60678, 0.69901, 1.55043, {"group":"shockbody_RR"}],
+        ["rsb1l",  0.60678, 0.69901, 1.55043, {"group":"shockbody_RL"}],
+        ["rsb2r", -0.50678, 0.69901, 1.54177, {"group":"shockbody_RR"}],
+        ["rsb2l",  0.50678, 0.69901, 1.54177, {"group":"shockbody_RL"}],
+        ["rsb3r", -0.669192, 0.849124, 0.835502, {"group":"shockbody_RR"}],
+        ["rsb3l",  0.669192, 0.849124, 0.835502, {"group":"shockbody_RL"}],
+        ["rsb4r", -0.569192, 0.849124, 0.826851, {"group":"shockbody_RR"}],
+        ["rsb4l",  0.569192, 0.849124, 0.826851, {"group":"shockbody_RL"}],
+        {"group":""},
+    ],
+    "rails": {
+        "shock_RR":{
+            "links:":["rsb1r","rss1r"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shock_RRR":{
+            "links:":["rsb2r","rss2r"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shock_RL":{
+            "links:":["rsb1l","rss1l"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shock_RLL":{
+            "links:":["rsb2l","rss2l"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shockshaft_RR":{
+            "links:":["rss1r","rss2r"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shockshaft_RL":{
+            "links:":["rss1l","rss2l"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shockbody_RR":{
+            "links:":["rsb1r","rsb2r"], "broken:":[], "looped":false, "capped":true,
+        },
+        "shockbody_RL":{
+            "links:":["rsb1l","rsb2l"], "broken:":[], "looped":false, "capped":true,
+        },
+    },
+    "slidenodes": [
+        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+        ["rsbr", "shockshaft_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rsbl", "shockshaft_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rsh1r", "shockbody_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rsh1l", "shockbody_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rss3r", "shock_RR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["rss3l", "shock_RL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["rss4r", "shock_RRR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["rss4l", "shock_RLL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["rsb3r", "shock_RR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["rsb3l", "shock_RL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["rsb4r", "shock_RRR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["rsb4l", "shock_RLL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+    ],
+    "torsionbars": [
+        ["id1:", "id2:", "id3:", "id4:"],
+        {"spring":500, "damp":5, "deform":5000, "strength":10000},
+        //rigidify shock torsionally
+        ["rsb2l", "rsb1l", "rss1l", "rss2l"],
+        ["rsb2r", "rsb1r", "rss1r", "rss2r"],
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        //shock structure
+        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":2001000,"beamDamp":100},
+        {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+        {"deformLimitExpansion":""},
+        ["rsbl", "rss2l"],
+        ["rsbl", "rss1l"],
+        ["rss1l", "rss3l"],
+        ["rss2l", "rss4l"],
+        ["rss3l", "rss4l"],
+        ["rss3l", "rss2l"],
+        ["rss4l", "rss1l"],
+        ["rsbr", "rss2r"],
+        ["rsbr", "rss1r"],
+        ["rss1r", "rss3r"],
+        ["rss2r", "rss4r"],
+        ["rss3r", "rss4r"],
+        ["rss3r", "rss2r"],
+        ["rss4r", "rss1r"],
+
+        ["rsh1l", "rsb2l"],
+        ["rsh1l", "rsb1l"],
+        ["rsb1l", "rsb3l"],
+        ["rsb2l", "rsb4l"],
+        ["rsb3l", "rsb4l"],
+        ["rsb3l", "rsb2l"],
+        ["rsb4l", "rsb1l"],
+        ["rsh1r", "rsb2r"],
+        ["rsh1r", "rsb1r"],
+        ["rsb1r", "rsb3r"],
+        ["rsb2r", "rsb4r"],
+        ["rsb3r", "rsb4r"],
+        ["rsb3r", "rsb2r"],
+        ["rsb4r", "rsb1r"],
+
+        ["rsb1r", "rsb2r"],
+        ["rsb1l", "rsb2l"],
+
+        {"beamSpring":101000,"beamDamp":500},
+        {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+        ["rsb1l", "rsp1l"],
+        ["rsb2l", "rsp1l"],
+        ["rsb1l", "rf4l"],
+        ["rsb2l", "rf4l"],
+
+        ["rsb1r", "rsp1r"],
+        ["rsb2r", "rsp1r"],
+        ["rsb1r", "rf4r"],
+        ["rsb2r", "rf4r"],
+
+        ["rss1l", "rcbl"],
+        ["rss2l", "rcbl"],
+
+        ["rss1r", "rcbr"],
+        ["rss2r", "rcbr"],
+
+
+        //slidenode damping
+        {"beamType":"|NORMAL"},
+        {"beamDeform":10000,"beamStrength":10000},
+        {"beamSpring":0,"beamDamp":20},
+        ["rss4l", "rf4l"],
+        ["rss3l", "rf4l"],
+        ["rss3l", "rf3"],
+        ["rss4l", "rf3"],
+        ["rsb4l", "rx2l"],
+        ["rsb3l", "rx2l"],
+
+        ["rss4r", "rf4r"],
+        ["rss3r", "rf4r"],
+        ["rss3r", "rf3"],
+        ["rss4r", "rf3"],
+        ["rsb4r", "rx2r"],
+        ["rsb3r", "rx2r"],
+
+        {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
+        {"beamDeform":51000,"beamStrength":351000},
+        {"beamSpring":0},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
+        {"precompressionRange":0},
+        {"beamPrecompressionTime":0},
+        ["rsbr","rsh1r",
+            {
+            "name":"shock_RR",
+            //set damping values in bypass controller
+            "beamDamp":1000,
+            "beamDampRebound":1000,
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000,
+            "longBoundRange":1,
+            "shortBoundRange":1,
+            "boundZone":0.01,
+            "dampCutoffHz":250,
+            },
+        ],
+        ["rsbl","rsh1l",
+            {
+            "name":"shock_RL",
+            //set damping values in bypass controller
+            "beamDamp":1000,
+            "beamDampRebound":1000,
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000,
+            "longBoundRange":1,
+            "shortBoundRange":1,
+            "boundZone":0.01,
+            "dampCutoffHz":250,
+            },
+        ],
+        {"precompressionRange":""},
+        {"beamPrecompressionTime":""},
+
+        //hard limit
+        {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":0,"beamDamp":0},
+        {"beamLimitSpring":2001000,"beamLimitDamp":1000},
+        ["rsbr","rsh1r", {"longBoundRange":0.26,"shortBoundRange":0.23,"boundZone":0.02,"dampCutoffHz":500}],
+        ["rsbl","rsh1l", {"longBoundRange":0.26,"shortBoundRange":0.23,"boundZone":0.02,"dampCutoffHz":500}],
+
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$bp_6C_R", "range", "N/m/s", "Bypass Shocks", 9000, 1000, 20000, "Compression Damping","Compression damping rate", {"stepDis":100, "subCategory":"Rear"}]
+        ["$bp_7R_R", "range", "N/m/s", "Bypass Shocks", 6000, 1000, 20000, "Rebound Damping", "Rebound damping rate", {"stepDis":100, "subCategory":"Rear"}]
+        ["$bp_1SC_R", "range", "%", "Bypass Shocks", 0.45, 0, 1, "Short Compression", "Regulates the flow of oil bypassing the damper piston from 0% to 40% of travel", {"minDis":0,"maxDis":100,"stepDis":1, "subCategory":"Rear"}]
+        ["$bp_2MC_R", "range", "%", "Bypass Shocks", 0.35, 0, 1, "Mid Compression", "Regulates the flow of oil bypassing the damper piston from 40% to 60% of travel", {"minDis":0,"maxDis":100,"stepDis":1, "subCategory":"Rear"}]
+        ["$bp_3LC_R", "range", "%", "Bypass Shocks", 0.25, 0, 1, "Long Compression", "Regulates the flow of oil bypassing the damper piston from 60% to 80% of travel", {"minDis":0,"maxDis":100,"stepDis":1, "subCategory":"Rear"}]
+        ["$bp_4SR_R", "range", "%", "Bypass Shocks", 0.2, 0, 0.5, "Short Rebound", "Regulates the flow of oil bypassing the damper piston from 20% to 60% of travel", {"minDis":0,"maxDis":100,"stepDis":1, "subCategory":"Rear"}]
+        ["$bp_5LR_R", "range", "%", "Bypass Shocks", 0.2, 0, 0.5, "Long Rebound", "Regulates the flow of oil bypassing the damper piston from 60% to 80% of travel", {"minDis":0,"maxDis":100,"stepDis":1, "subCategory":"Rear"}]
+    ],
+    "controller": [
+        ["fileName"],
+        ["bypassDampers" {"name":"rearBypass"}]
+    ],
+    "rearBypass": {
+        "dampers": [
+            ["name", "beamName"]
+            ["RR", "shock_RR"]
+            ["RL", "shock_RL"]
+        ]
+        "zones": [
+            ["zoneDistance", "beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit",            "beamDampVelocitySplitRebound"]
+            [-0.26,           0,         "$bp_6C_R",     0,                 "$bp_7R_R",            "$=$bp_1SC_R+$bp_2MC_R+$bp_3LC_R",  0]
+            [-0.16,           0,         "$bp_6C_R",     0,                 "$bp_7R_R",            "$=$bp_1SC_R+$bp_2MC_R+$bp_3LC_R",  "$=$bp_4SR_R+$bp_5LR_R"]
+            [-0.07            0,         "$bp_6C_R",     0,                 "$bp_7R_R",            "$=$bp_2MC_R+$bp_3LC_R",            "$=$bp_4SR_R+$bp_5LR_R"]
+            [0.03,            0,         "$bp_6C_R",     0,                 "$bp_7R_R",            "$bp_3LC_R",                        "$bp_5LR_R"]
+            [0.13,            0,         "$bp_6C_R",     0,                 "$bp_7R_R",            0,                                  0]
+            [0.23,            0,         "$bp_6C_R",     0,                 "$bp_7R_R",            0,                                  0]
+        ],
+        "valveSoundMaxVolume": 0.45
+    },
+    "triangles":[
+        ["id1:", "id2:", "id3:"],
+        {"triangleType":"NONCOLLIDABLE"},
+        {"dragCoef":5},
+        ["rsh1l", "rsb1l", "rss3l"],
+        ["rsh1l", "rss4l", "rsb2l"],
+        ["rsh1l", "rss3l", "rss4l"],
+        ["rss3l", "rsb3l", "rsb4l"],
+        ["rsb4l", "rss4l", "rss3l"],
+        ["rsb3l", "rss1l", "rsbl"],
+        ["rsbl", "rss2l", "rsb4l"],
+        ["rsb4l", "rsb3l", "rsbl"],
+
+        ["rsb1r", "rsh1r", "rss3r"],
+        ["rss4r", "rsh1r", "rsb2r"],
+        ["rss3r", "rsh1r", "rss4r"],
+        ["rsb3r", "rss3r", "rsb4r"],
+        ["rss4r", "rsb4r", "rss3r"],
+        ["rss1r", "rsb3r", "rsbr"],
+        ["rss2r", "rsbr", "rsb4r"],
+        ["rsb3r", "rsb4r", "rsbr"],
+        {"triangleType":"NORMALTYPE"},
+    ],
+},
+}
